@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create product{% endblock %}
+
+{% block body %}
+  <div class="container mt-4">
+    <h1>{{ operation }} Product</h1>
+    
+    <form class="col-md-6 mx-auto" method="POST">
+      {{ form_start(form) }}
+      
+      <div class="form-group">
+        {{ form_row(form.name, { 'attr': {'class': 'form-control', 'placeholder': 'Name'} }) }}
+      </div>
+      
+      <div class="form-group">
+        {{ form_row(form.reference, { 'attr': {'class': 'form-control', 'placeholder': 'Reference'} }) }}
+      </div>
+      
+      <div class="form-group">
+        {{ form_row(form.price, { 'attr': {'class': 'form-control', 'placeholder': 'Price'} }) }}
+      </div>
+      
+      <div class="form-group">
+        {{ form_row(form.weight, { 'attr': {'class': 'form-control', 'placeholder': 'Weight'} }) }}
+      </div>
+      
+      <div class="form-group">
+        {{ form_row(form.category, { 'attr': {'class': 'form-control', 'placeholder': 'Category'} }) }}
+      </div>
+      
+      <div class="form-group">
+        {{ form_row(form.stock, { 'attr': {'class': 'form-control', 'placeholder': 'Stock'} }) }}
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="{{ path('main') }}">Cancel</a>
+    </form>
+  </div>
+{% endblock %}

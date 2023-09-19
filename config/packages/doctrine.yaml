@@ -1,0 +1,23 @@
+doctrine:
+    dbal:
+        url: '%env(resolve:DATABASE_URL)%'
+        driver: 'pdo_pgsql'
+        server_version: '14.9'
+        host: 'localhost'
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        #auto_mapping: true
+        proxy_namespace: Proxies
+        proxy_dir: '%kernel.cache_dir%/doctrine/orm/Proxies'
+        default_entity_manager: default
+        #naming_strategy: doctrine.orm.naming_strategy.default
+        entity_managers:
+            default:
+                connection: default
+                mappings:
+                    App:
+                        is_bundle: false
+                        #type: annotation
+                        dir: '%kernel.project_dir%/src/Entity'
+                        prefix: 'App\Entity'
+                        alias: App

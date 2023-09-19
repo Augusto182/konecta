@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sale{% endblock %}
+
+{% block body %}
+  <div class="container mt-4">
+    <h1>Add Sale</h1>
+    
+    <form class="col-md-6 mx-auto" method="POST">
+      {{ form_start(form) }}
+      
+      <div class="form-group">
+        {{ form_row(form.id_product, { 'attr': {'class': 'form-control', 'placeholder': 'Product Id'} }) }}
+      </div>
+      
+      <div class="form-group">
+        {{ form_row(form.units, { 'attr': {'class': 'form-control', 'placeholder': 'Units'} }) }}
+      </div>
+
+      {% for error, status in errors %}
+        {% if error == 'out_of_stock' and status %}
+          <div class="error"> Out of stock </div>
+        {% endif %}
+      {% endfor %}
+      
+      <button type="submit" class="btn btn-primary">Add</button>
+      <a href="{{ path('main') }}">Cancel</a>
+    </form>
+  </div>
+{% endblock %}
