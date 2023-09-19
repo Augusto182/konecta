@@ -25,13 +25,17 @@ To install and run this project, follow these steps:
    ```bash
    cd konecta
 
-3. Install project dependencies:
+3. Create a .env file. Copy the .env_default provided.
    ```bash
-   composer install
+   cp .env_default .env
 
 4. Configure the database connection in the .env file. Update the DATABASE_URL parameter with your PostgreSQL database connection details:
    ```bash
    DATABASE_URL=postgresql://username:password@localhost:5432/konectadb
+
+5. Install project dependencies:
+   ```bash
+   composer install
 
 5. Create the database:
    ```bash
@@ -41,11 +45,15 @@ To install and run this project, follow these steps:
    ```bash
    php bin/console doctrine:migrations:migrate
 
-7. Start the Symfony development server
+7. Update database schema:
+   ```bash
+   php bin/console doctrine:schema:update --force
+
+8. Start the Symfony development server
    ```bash
    symfony server:start
 
-8. Access the project in your web browser at http://localhost:8000.
+9. Access the project in your web browser at http://localhost:8000.
 
 
 ## Queries
