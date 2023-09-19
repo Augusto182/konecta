@@ -10,6 +10,8 @@ Before you begin, ensure you have met the following requirements:
 - PHP 8.1 or higher with php8.1-pgsql
 - Composer
 - PostgreSQL database server v 14.9
+- Symfony CLI. 
+  See https://symfony.com/download for instructions.
 
 ## Installation
 
