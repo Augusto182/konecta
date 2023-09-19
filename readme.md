@@ -1,6 +1,7 @@
 # Konecta Symfony Project
 
-Handcrafted by Augusto R. M. as demonstration for Konecta.
+Developed by Augusto R. M. as demonstration for Konecta.
+Contact at augusto@sucorreo.org
 
 ## Requirements
 
@@ -15,9 +16,35 @@ Before you begin, ensure you have met the following requirements:
 To install and run this project, follow these steps:
 
 1. Clone the repository:
-
    ```bash
-   git clone https://github.com/yourusername/konecta.git
+   git clone https://github.com/Augusto182/konecta.git
+
+2. Change to the project directory
+   ```bash
+   cd konecta
+
+3. Install project dependencies:
+   ```bash
+   composer install
+
+4. Configure the database connection in the .env file. Update the DATABASE_URL parameter with your PostgreSQL database connection details:
+   ```bash
+   DATABASE_URL=postgresql://username:password@localhost:5432/konectadb
+
+5. Create the database:
+   ```bash
+   php bin/console doctrine:database:create
+
+6. Run database migrations to create the required tables:
+   ```bash
+   php bin/console doctrine:migrations:migrate
+
+7. Start the Symfony development server
+   ```bash
+   symfony server:start
+
+8. Access the project in your web browser at http://localhost:8000.
+
 
 ## Queries
 
