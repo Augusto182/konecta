@@ -39,11 +39,21 @@ class MainController extends AbstractController {
             ->setMaxResults(1);
     
         $result = $queryBuilder->getQuery()->getOneOrNullResult();
+
+        if ($result) {
+            return [
+                'product' => $result['name']. ' ' . $result['reference'],
+                'value' => $result['max_stock'],
+            ];
+        }
+        else {
+            return [
+                'product' => 'Add a new product',
+                'value' => '',
+            ];  
+        }
         
-        return [
-            'product' => $result['name']. ' ' . $result['reference'],
-            'value' => $result['max_stock'],
-        ];
+
     }
 
     public function bestSellingProduct() {
@@ -59,9 +69,19 @@ class MainController extends AbstractController {
     
         $result = $queryBuilder->getQuery()->getOneOrNullResult();
         
-        return [
-            'product' => $result['name']. ' ' . $result['reference'],
-            'value' => $result['total_sales'],
-        ];
+        if ($result) {
+
+            return [
+                'product' => $result['name']. ' ' . $result['reference'],
+                'value' => $result['total_sales'],
+            ];
+        }
+        else {
+            return [
+              'product' => 'Add a new product',
+              'value' => '',
+            ];  
+        }
+
     }
 }
